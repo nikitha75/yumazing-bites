@@ -1,6 +1,14 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
-import { Landing, About, Recipe, Newsletter, HomeLayout, Error } from "./pages";
+import {
+  Landing,
+  About,
+  Recipe,
+  Newsletter,
+  HomeLayout,
+  Error,
+  SinglePageError,
+} from "./pages";
+import { loader as landingLoader } from "./pages/Landing";
 
 const router = createBrowserRouter([
   {
@@ -11,9 +19,11 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Landing />,
+        errorElement: <SinglePageError />,
+        loader: landingLoader,
       },
       {
-        path: "recipe",
+        path: "recipe/:id",
         element: <Recipe />,
       },
       {
