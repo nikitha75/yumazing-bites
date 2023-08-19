@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import Wrapper from "../assets/wrappers/RecipeCard";
 
 const RecipeCard = ({ id, name, image, category, placeOfOrigin }) => {
+  // const data = useOutletContext();
+
   return (
     <Wrapper>
       <div className="img-container">
