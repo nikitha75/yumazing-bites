@@ -9,6 +9,7 @@ import {
   SinglePageError,
 } from "./pages";
 import { loader as landingLoader } from "./pages/Landing";
+import { loader as singleRecipeLoader } from "./pages/Recipe";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,8 @@ const router = createBrowserRouter([
       {
         path: "recipe/:id",
         element: <Recipe />,
+        errorElement: <SinglePageError />,
+        loader: singleRecipeLoader,
       },
       {
         path: "newsletter",
