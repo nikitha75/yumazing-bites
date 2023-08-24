@@ -25,9 +25,9 @@ const router = createBrowserRouter([
       },
       {
         path: "recipe/:id",
-        element: <Recipe />,
         errorElement: <SinglePageError />,
         loader: singleRecipeLoader,
+        element: <Recipe />,
       },
       {
         path: "newsletter",
@@ -38,10 +38,6 @@ const router = createBrowserRouter([
         element: <About />,
       },
     ],
-  },
-  {
-    path: "/about",
-    element: <About />,
   },
 ]);
 
