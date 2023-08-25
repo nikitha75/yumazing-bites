@@ -27,6 +27,12 @@ const Recipe = () => {
     strInstructions: instructions,
   } = singleRecipe;
 
+  const validIngredients = Object.keys(singleRecipe)
+    .filter(
+      (key) => key.startsWith("strIngredient") && singleRecipe[key] !== ""
+    )
+    .map((key) => singleRecipe[key]);
+
   return (
     <Wrapper>
       <header>
@@ -48,6 +54,17 @@ const Recipe = () => {
           <p>
             <span className="recipe-data">place of origin : </span>
             {placeOfOrigin}
+          </p>
+          <p>
+            <span className="recipe-data">ingredients : </span>
+            {validIngredients.map((item, index) => {
+              return (
+                <span className="ingred" key={index}>
+                  {item}
+                  {index < validIngredients.length - 1 ? "," : ""}
+                </span>
+              );
+            })}
           </p>
           <p>
             <span className="recipe-data">instructions :</span>

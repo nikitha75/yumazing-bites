@@ -34,6 +34,11 @@ const Wrapper = styled.div`
     letter-spacing: var(--letterSpacing);
   }
 
+  .ingred {
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+
   /* .instructions {
     display: -webkit-box;
     -webkit-box-orient: vertical;
