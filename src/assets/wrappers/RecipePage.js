@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   header {
@@ -8,19 +8,24 @@ const Wrapper = styled.div`
       margin-bottom: 1rem;
     }
   }
+
   .img {
     border-radius: var(--borderRadius);
+    width: 100%;
   }
-  .drink-info {
+
+  .recipe-info {
     padding-top: 2rem;
   }
-  .drink p {
+
+  .recipe p {
     font-weight: 700;
     text-transform: capitalize;
     line-height: 2;
     margin-bottom: 1rem;
   }
-  .drink-data {
+
+  .recipe-data {
     margin-right: 0.5rem;
     background: var(--primary-300);
     padding: 0.25rem 0.5rem;
@@ -28,19 +33,40 @@ const Wrapper = styled.div`
     color: var(--primary-700);
     letter-spacing: var(--letterSpacing);
   }
-  .ing {
-    display: inline-block;
-    margin-right: 0.5rem;
-  }
+
+  /* .instructions {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    overflow: hidden;
+  } */
+
+  /* .show-instructions {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 20;
+    line-clamp: 5;
+    display: inline;
+    overflow: visible;
+  } */
+
   @media (min-width: 992px) {
-    .drink {
+    .recipe {
       display: grid;
       grid-template-columns: 2fr 3fr;
       gap: 3rem;
-      align-items: center;
+      /* align-items: center; */
     }
-    .drink-info {
+
+    .recipe-info {
       padding-top: 0;
+    }
+
+    .img {
+      width: 22rem;
+      display: inline-block;
+      margin-right: 0.5rem;
     }
   }
 `;
