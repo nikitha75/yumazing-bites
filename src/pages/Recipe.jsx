@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, Navigate } from "react-router-dom";
 import axios from "axios";
 import Wrapper from "../assets/wrappers/RecipePage";
 import { useState } from "react";
@@ -13,11 +13,14 @@ export const loader = async ({ params }) => {
 
 const Recipe = () => {
   const { id, data } = useLoaderData();
-  const [showInstructions, setShowInstructions] = useState(false);
+  // const [showInstructions, setShowInstructions] = useState(false);
+
+  // if (!data) return <h2>Something went wrong...</h2>;
+  if (!data.meals) {
+    return <Navigate to="/" />;
+  }
 
   const singleRecipe = data.meals[0];
-
-  console.log(singleRecipe);
 
   const {
     strMeal: name,
