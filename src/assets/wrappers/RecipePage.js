@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 
   .img {
     border-radius: var(--borderRadius);
-    width: 100%;
+    /* width: 100%; */
   }
 
   .recipe-info {
