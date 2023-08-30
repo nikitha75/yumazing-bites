@@ -3,7 +3,8 @@ import { Form, redirect } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const newsletterUrl = "";
+const newsletterUrl =
+  "https://yumazing-bites-api.onrender.com/api/newsletter/subscribe";
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
@@ -40,8 +41,8 @@ const Newsletter = () => {
         <input
           type="text"
           className="form-input"
-          name="lastName"
-          id="lastName"
+          name="lname"
+          id="lname"
           defaultValue="holmes"
         />
       </div>
