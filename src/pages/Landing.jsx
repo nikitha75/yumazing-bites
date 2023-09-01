@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import axios from "axios";
 import RecipeList from "./../components/RecipeList";
+import SearchForm from "./../components/SearchForm";
 
 const recipeSearchUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
@@ -15,6 +16,7 @@ const Landing = () => {
   const { meals, searchTerm } = useLoaderData();
   return (
     <>
+      <SearchForm />
       <RecipeList meals={meals} />
     </>
   );
