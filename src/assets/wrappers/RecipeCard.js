@@ -24,9 +24,10 @@ const Wrapper = styled.article`
     h3,
     h5 {
       margin-bottom: 0.5rem;
+      text-align: center;
     }
-    h4 {
-      font-weight: 700;
+    h3 {
+      font-weight: 400;
     }
     p {
       margin-bottom: 1rem;
