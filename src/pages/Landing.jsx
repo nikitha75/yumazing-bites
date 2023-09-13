@@ -17,17 +17,18 @@ const searchRecipesQuery = (searchTerm) => {
   };
 };
 
-export const loader = async ({ request }) => {
-  const url = new URL(request.url);
-  const searchTerm = url.searchParams.get("search") || "";
-  return { searchTerm };
-};
+export const loader =
+  (queryClient) =>
+  async ({ request }) => {
+    const url = new URL(request.url);
+    const searchTerm = url.searchParams.get("search") || "";
+    await queryClient.ensureQueryData(searchRecipesQuery(searchTerm));
+    return { searchTerm };
+  };
 
 const Landing = () => {
   const { searchTerm } = useLoaderData();
-  const { data: meals, isLoading } = useQuery(searchRecipesQuery(searchTerm));
-
-  if (isLoading) return <h4>Loading...</h4>;
+  const { data: meals } = useQuery(searchRecipesQuery(searchTerm));
 
   return (
     <>
