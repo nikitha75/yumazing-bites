@@ -2,20 +2,38 @@ import { Link, useLoaderData, Navigate } from "react-router-dom";
 import axios from "axios";
 import Wrapper from "../assets/wrappers/RecipePage";
 import { useState } from "react";
+import { queryClient, useQuery } from "@tanstack/react-query";
 
 const singleRecipeUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
-
-export const loader = async ({ params }) => {
-  const { id } = params;
-  const { data } = await axios.get(`${singleRecipeUrl}${id}`);
-  return { id, data };
+const singleRecipeQuery = (id) => {
+  return {
+    queryKey: ["recipe", id],
+    queryFn: async () => {
+      const { data } = await axios.get(`${singleRecipeUrl}${id}`);
+      return data;
+    },
+  };
 };
 
+export const loader =
+  (queryClient) =>
+  async ({ params }) => {
+    const { id } = params;
+    // const { data } = await axios.get(`${singleRecipeUrl}${id}`);
+    // return { id, data };
+
+    await queryClient.ensureQueryData(singleRecipeQuery(id));
+    return { id };
+  };
+
 const Recipe = () => {
-  const { id, data } = useLoaderData();
+  const { id } = useLoaderData();
   // const [showInstructions, setShowInstructions] = useState(false);
 
   // if (!data) return <h2>Something went wrong...</h2>;
+
+  const { data } = useQuery(singleRecipeQuery(id));
+
   if (!data.meals) {
     return <Navigate to="/" />;
   }
