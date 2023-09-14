@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "recipe/:id",
         errorElement: <SinglePageError />,
-        loader: singleRecipeLoader,
+        loader: singleRecipeLoader(queryClient),
         element: <Recipe />,
       },
       {
