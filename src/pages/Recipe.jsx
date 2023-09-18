@@ -1,8 +1,7 @@
 import { Link, useLoaderData, Navigate } from "react-router-dom";
 import axios from "axios";
 import Wrapper from "../assets/wrappers/RecipePage";
-import { useState } from "react";
-import { queryClient, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 const singleRecipeUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
 const singleRecipeQuery = (id) => {
