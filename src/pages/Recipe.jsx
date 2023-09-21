@@ -3,7 +3,8 @@ import axios from "axios";
 import Wrapper from "../assets/wrappers/RecipePage";
 import { useQuery } from "@tanstack/react-query";
 
-const singleRecipeUrl = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
+const singleRecipeUrl = import.meta.env.VITE_SINGLE_RECIPE_URL;
+
 const singleRecipeQuery = (id) => {
   return {
     queryKey: ["recipe", id],
