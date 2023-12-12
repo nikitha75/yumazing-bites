@@ -2,4 +2,4 @@ YumazingBites, the ultimate go-to app for recipes. With a flick of your finger, 
 
 
 Check it out here
-[YumazingBites](https://yumazing-bites.netlify.app)
+[YumazingBites](https://yumazing-bites.onrender.com/)
